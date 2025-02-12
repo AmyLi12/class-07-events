@@ -1,6 +1,6 @@
 import Citation from "./Citation";
 
-export default function GalleryCard({ imgUri, altText, citation, caption, color = '#e2e8f0' }) {
+export default function GalleryCard({ imgUri, altText, citation = undefined, caption = undefined, color = '#e2e8f0' }) {
   return (
     <div
       className="card"
@@ -9,10 +9,16 @@ export default function GalleryCard({ imgUri, altText, citation, caption, color 
       <img src={imgUri} alt={altText} />
 
       <div className="caption">
-        <p style={{ borderBottom: "1px solid #000000", paddingBottom: "2px" }}>
-          {caption}
-        </p>
-        <Citation citation={citation} align="center" />
+        {!!caption &&
+
+          <p style={{ borderBottom: "1px solid #000000", paddingBottom: "2px" }}>
+            {caption}
+          </p>
+
+        }
+        {citation
+        ? <Citation citation={citation} align="center" /> : undefined}
+
       </div>
     </div>
   )
