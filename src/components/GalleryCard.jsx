@@ -1,10 +1,16 @@
 import Citation from "./Citation";
 
+function handleClick() {
+  console.log("Got clicked!");
+  alert("Clicked me")
+}
+
 export default function GalleryCard({ imgUri, altText, citation = undefined, caption = undefined, color = '#e2e8f0' }) {
   return (
     <div
       className="card"
       style={{ backgroundColor: color }}
+      onClick = {handleClick}
     >
       <img src={imgUri} alt={altText} />
 
